@@ -3,10 +3,14 @@ import { Outlet } from 'react-router-dom';
 
 import Dashboard from './Dashboard/Dashboard';
 
+import styles from './index.module.css';
+
 function Layout() {
   return (
     <div>
-      <Dashboard />
+      <div className={styles.Dashboard}>
+        <Dashboard />
+      </div>
 
       <Outlet />
     </div>

@@ -1,0 +1,8 @@
+.Dashboard {
+  width: 240px;
+  height: 100vh;
+
+  position: absolute;
+
+  background: rgba(54, 55, 64, 1);
+}
