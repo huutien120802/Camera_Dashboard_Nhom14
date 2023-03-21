@@ -1,0 +1,53 @@
+.HeaderWrapper {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 36px;
+  margin-left: 11px;
+  margin-right: 33px;
+}
+
+.HeaderTitleContainer {
+  display: flex;
+  align-items: center;
+}
+
+.Title {
+  margin-left: 16px;
+
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.HeaderIcon {
+  height: 18px;
+  width: 18px;
+}
+
+.Divider {
+  height: 32px;
+  border: 1px solid rgba(223, 224, 235, 1);
+
+}
+
+.RightContainer {
+  display: flex;
+  align-items: center;
+
+  gap: 28px;
+}
+
+.Circle {
+  width: 40px;
+  height: 40px;
+
+  background-color: gray;
+  border-radius: 50%;
+}
+
+.ProfileContainer {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+}
