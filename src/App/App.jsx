@@ -8,7 +8,7 @@ import Pages404 from 'pages/Pages404/Pages404';
 
 import Layout from 'Layout/Layout';
 import LoadingPage from 'pages/LoadingPage/LoadingPage';
-import RouteWrapper from './RouteWrapper/RouteWrapper';
+import RouteWrapper from 'components/RouteWrapper/RouteWrapper';
 
 import './index.css';
 

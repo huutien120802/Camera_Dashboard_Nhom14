@@ -1,0 +1,15 @@
+.FunctionalContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.IconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 12px;
+  margin-left: 50px;
+
+  gap: 5px;
+}

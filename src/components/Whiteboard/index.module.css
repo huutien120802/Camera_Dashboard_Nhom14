@@ -1,0 +1,14 @@
+.Container {
+  width: 100%;
+  height: calc(100vh - 200px);
+
+  background-color: white;
+  border: 1px solid rgba(223, 224, 235, 1)
+}
+
+.Title {
+  margin: 32px;
+
+  font-size: 19px;
+  font-weight: bold;
+}

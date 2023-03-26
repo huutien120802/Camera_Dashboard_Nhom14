@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import Dashboard from './Dashboard/Dashboard';
+import Dashboard from '../components/Dashboard/Dashboard';
 
 import styles from './index.module.css';
 

@@ -1,8 +1,10 @@
 import React from 'react';
 
+import Whiteboard from 'components/Whiteboard/Whiteboard';
+
 function RegisterPage() {
   return (
-    <div>RegisterPage</div>
+    <Whiteboard title="Đăng kí" />
   );
 }
 

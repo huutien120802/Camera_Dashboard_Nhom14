@@ -1,8 +1,9 @@
+import Whiteboard from 'components/Whiteboard/Whiteboard';
 import React from 'react';
 
 function ContactPage() {
   return (
-    <div>ContactPage</div>
+    <Whiteboard title="Liên hệ" />
   );
 }
 
