@@ -1,8 +1,10 @@
 import React from 'react';
 
+import Whiteboard from 'components/Whiteboard/Whiteboard';
+
 function SettingPage() {
   return (
-    <div>SettingPage</div>
+    <Whiteboard title="Cài đặt" />
   );
 }
 
