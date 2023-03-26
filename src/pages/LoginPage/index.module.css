@@ -67,7 +67,6 @@
 
 .Form input {
   height: 42px;
-  margin-top: 6px;
   padding: 11px 16px;
 
   color: rgba(75, 80, 109, 1);
@@ -106,8 +105,55 @@
   background-color: #3751FF;
   box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
   border-radius: 8px;
+  border: none;
+  cursor: pointer;
 }
 
 .Link {
   color: rgba(55, 81, 255, 1);
+}
+
+.PasswordContainer {
+  margin-top: 6px;
+
+  position: relative;
+}
+
+.EmailContainer {
+  position: relative;
+}
+
+.Unsee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  right: 14px;
+  bottom: 50%;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  transform: translateY(50%);
+
+  z-index: 1;
+}
+
+.Unsee img {
+  height: 16px;
+}
+
+.Input {
+  width: 100%;
+}
+
+.Errors {
+  position: absolute;
+  bottom: -18px;
+
+  color: red;
+  font-size: 13px;
+  font-weight: 300;
 }

@@ -28,21 +28,21 @@ function App() {
         <Route path={LOCATIONS.LOGIN} element={<LoginPage />} />
 
         <Route path={LOCATIONS.HOME} element={<Layout />}>
-          <Route index element={RouteWrapper(HomePage, 'Trang chủ')} />
+          <Route index exact="true" element={RouteWrapper(HomePage, 'Trang chủ')} />
 
-          <Route path={LOCATIONS.CAMERAS} element={RouteWrapper(CamerasPage, 'Quản lí Camera')} />
+          <Route path={LOCATIONS.CAMERAS} exact="true" element={RouteWrapper(CamerasPage, 'Quản lí Camera')} />
 
-          <Route path={LOCATIONS.WARNING} element={RouteWrapper(WarningPage, 'Cảnh báo')} />
+          <Route path={LOCATIONS.WARNING} exact="true" element={RouteWrapper(WarningPage, 'Cảnh báo')} />
 
-          <Route path={LOCATIONS.LOCATION} element={RouteWrapper(LocationPage, 'Khu vực')} />
+          <Route path={LOCATIONS.LOCATION} exact="true" element={RouteWrapper(LocationPage, 'Khu vực')} />
 
-          <Route path={LOCATIONS.STATISTIC} element={RouteWrapper(StatisticPage, 'Thống kê')} />
+          <Route path={LOCATIONS.STATISTIC} exact="true" element={RouteWrapper(StatisticPage, 'Thống kê')} />
 
-          <Route path={LOCATIONS.CONTACT} element={RouteWrapper(ContactPage, 'Liên hệ')} />
+          <Route path={LOCATIONS.CONTACT} exact="true" element={RouteWrapper(ContactPage, 'Liên hệ')} />
 
-          <Route path={LOCATIONS.SETTING} element={RouteWrapper(SettingPage, 'Cài đặt')} />
+          <Route path={LOCATIONS.SETTING} exact="true" element={RouteWrapper(SettingPage, 'Cài đặt')} />
 
-          <Route path={LOCATIONS.REGISTER} element={RouteWrapper(RegisterPage, 'Đăng kí')} />
+          <Route path={LOCATIONS.REGISTER} exact="true" element={RouteWrapper(RegisterPage, 'Đăng kí')} />
         </Route>
         <Route element={<Pages404 />} key="not-found" />
       </Routes>
