@@ -1,40 +1,52 @@
-.container {
+.Container {
   background-color: #fff;
   margin-left: auto;
   margin-right: auto;
   width: 1120px;
   height: 830px;
 }
-.container_description {
+
+.ContainerDescription {
   display: flex;
 }
-.description_item {
+
+.DescriptionItem {
   width: 240px;
   height: 120px;
+  margin-right: 90px;
+
   border: 1px solid #363740;
   border-radius: 8px;
+
   background-color: #fff;
-  margin-right: 90px;
   text-align: center;
 }
-.title {
+
+.Title {
   margin-top: 21px;
   margin-bottom: 15px;
 }
-.number {
+
+.Number {
   font-size: 40px;
   font-style: bold;
 }
-.container_camera {
-  margin-top: 26px;
+
+.ContainerCamera {
   display: flex;
+
+  margin-top: 26px;
+
   flex-wrap: wrap;
   justify-content: space-around;
 }
-.camera_item {
+
+.CameraItem {
   background-color: #000;
-  margin: 9px 10px 9px 10px;
+
   width: 540px;
   height: 320px;
+  margin: 9px 10px 9px 10px;
+
   border-radius: 8px;
 }
