@@ -18,7 +18,6 @@
 
   border: 1px solid #363740;
   border-radius: 8px;
-
   background-color: #fff;
   text-align: center;
 }
@@ -35,11 +34,10 @@
 
 .ContainerCamera {
   display: flex;
-
-  margin-top: 26px;
-
   flex-wrap: wrap;
   justify-content: space-around;
+
+  margin-top: 26px;
 }
 
 .CameraItem {
@@ -48,6 +46,5 @@
   margin: 9px 10px 9px 10px;
 
   border-radius: 8px;
-
   background-color: #000;
 }
