@@ -15,6 +15,7 @@ function HomePage() {
             60
           </p>
         </div>
+
         <div className={styles.DescriptionItem}>
           <p className={styles.Title}>
             Tổng số Profile
@@ -28,8 +29,11 @@ function HomePage() {
 
       <div className={styles.ContainerCamera}>
         <div className={styles.CameraItem} />
+
         <div className={styles.CameraItem} />
+
         <div className={styles.CameraItem} />
+
         <div className={styles.CameraItem} />
       </div>
     </div>
