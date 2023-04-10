@@ -1,5 +1,8 @@
-import React, { Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { Suspense, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import axiosClient from 'utils/axios';
 
 import LOCATIONS from 'constants/index';
 
@@ -21,33 +24,65 @@ const StatisticPage = React.lazy(() => import('pages/StatisticPage/StatisticPage
 const SettingPage = React.lazy(() => import('pages/SettingPage/SettingPage'));
 const WarningPage = React.lazy(() => import('pages/WarningPage/WarningPage'));
 
-function App() {
+function App(props) {
+  const {
+    me,
+    actionGetMyProfile,
+  } = props;
+
+  const navigate = useNavigate();
+
+  const accessToken = localStorage.getItem('token');
+
+  if (accessToken) {
+    axiosClient.defaults.headers.Authorization = accessToken;
+  }
+
+  useEffect(() => {
+    if ((!accessToken && me._id === '') || !accessToken) {
+      navigate(LOCATIONS.LOGIN);
+      return;
+    }
+
+    actionGetMyProfile({ navigate });
+
+    // eslint-disable-next-line consistent-return
+    return () => {};
+  }, [accessToken, me.id]);
+
   return (
     <Suspense fallback={<LoadingPage />}>
       <Routes>
         <Route path={LOCATIONS.LOGIN} element={<LoginPage />} />
 
-        <Route path={LOCATIONS.HOME} element={<Layout />}>
-          <Route index exact="true" element={RouteWrapper(HomePage, 'Trang chủ')} />
+        <Route path={LOCATIONS.HOME} exact element={<Layout />}>
+          <Route index element={RouteWrapper(HomePage, 'Trang chủ')} />
 
-          <Route path={LOCATIONS.CAMERAS} exact="true" element={RouteWrapper(CamerasPage, 'Quản lí Camera')} />
+          <Route path={LOCATIONS.CAMERAS} element={RouteWrapper(CamerasPage, 'Quản lí Camera')} />
 
-          <Route path={LOCATIONS.WARNING} exact="true" element={RouteWrapper(WarningPage, 'Cảnh báo')} />
+          <Route path={LOCATIONS.WARNING} element={RouteWrapper(WarningPage, 'Cảnh báo')} />
 
-          <Route path={LOCATIONS.LOCATION} exact="true" element={RouteWrapper(LocationPage, 'Khu vực')} />
+          <Route path={LOCATIONS.LOCATION} element={RouteWrapper(LocationPage, 'Khu vực')} />
 
-          <Route path={LOCATIONS.STATISTIC} exact="true" element={RouteWrapper(StatisticPage, 'Thống kê')} />
+          <Route path={LOCATIONS.STATISTIC} element={RouteWrapper(StatisticPage, 'Thống kê')} />
 
-          <Route path={LOCATIONS.CONTACT} exact="true" element={RouteWrapper(ContactPage, 'Liên hệ')} />
+          <Route path={LOCATIONS.CONTACT} element={RouteWrapper(ContactPage, 'Liên hệ')} />
 
-          <Route path={LOCATIONS.SETTING} exact="true" element={RouteWrapper(SettingPage, 'Cài đặt')} />
+          <Route path={LOCATIONS.SETTING} element={RouteWrapper(SettingPage, 'Cài đặt')} />
 
-          <Route path={LOCATIONS.REGISTER} exact="true" element={RouteWrapper(RegisterPage, 'Đăng kí')} />
+          <Route path={LOCATIONS.REGISTER} element={RouteWrapper(RegisterPage, 'Đăng kí')} />
         </Route>
-        <Route element={<Pages404 />} key="not-found" />
+
+        <Route path="*" element={<Pages404 />} />
       </Routes>
     </Suspense>
   );
 }
+
+App.propTypes = {
+  me: PropTypes.instanceOf(Object).isRequired,
+
+  actionGetMyProfile: PropTypes.func.isRequired,
+};
 
 export default App;
