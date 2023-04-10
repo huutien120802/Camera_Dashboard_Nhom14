@@ -2,7 +2,9 @@
   width: 240px;
   height: 100vh;
 
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
 
   background: rgba(54, 55, 64, 1);
 }

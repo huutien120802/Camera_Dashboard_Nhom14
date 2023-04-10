@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import App from 'App/index';
+import Notification from 'components/Notification/Notification';
 
 import store from 'store';
 
@@ -12,6 +13,7 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <App />
+      <Notification />
     </BrowserRouter>
   </Provider>,
 );

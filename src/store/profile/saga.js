@@ -1,8 +1,9 @@
 import { put, takeLeading } from 'redux-saga/effects';
-
-import LOCATIONS from 'constants/index';
+import jwtDecode from 'jwt-decode';
 
 import userAPI from 'apis/user/userAPI';
+
+import LOCATIONS from 'constants/index';
 
 import {
   apiErrorHandler,
@@ -10,27 +11,30 @@ import {
 
 // Login Redux States
 import {
-  GET_MY_PROFILE,
+  GET_USER_INFO,
   LOGOUT,
 } from './actionTypes';
 
 import {
-  actionGetMyProfileSuccess,
-  actionGetMyProfileFailed,
+  actionGetUserInfoSuccess,
+  actionGetUserInfoFailed,
 } from './actions';
 
-function* getMyProfile({ payload }) {
+function* getUserInfo({ payload }) {
   try {
-    const response = yield userAPI.getMyProfile();
+    const token = localStorage.getItem('token');
+    const decoded = jwtDecode(token);
+    const { userId } = decoded;
+    const response = yield userAPI.getUserInfo(userId);
 
-    yield put(actionGetMyProfileSuccess(response.data));
+    yield put(actionGetUserInfoSuccess(response));
   } catch (error) {
     apiErrorHandler(error);
 
     localStorage.removeItem('token');
-    payload?.navigate?.push(LOCATIONS.LOGIN);
+    payload?.navigate(LOCATIONS.LOGIN);
 
-    yield put(actionGetMyProfileFailed());
+    yield put(actionGetUserInfoFailed());
   }
 }
 
@@ -47,6 +51,6 @@ function logout({ payload }) {
 }
 
 export default function* UserProfileSaga() {
-  yield takeLeading(GET_MY_PROFILE, getMyProfile);
+  yield takeLeading(GET_USER_INFO, getUserInfo);
   yield takeLeading(LOGOUT, logout);
 }

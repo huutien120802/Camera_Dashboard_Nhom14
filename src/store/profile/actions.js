@@ -1,24 +1,24 @@
 import {
-  GET_MY_PROFILE,
-  GET_MY_PROFILE_SUCCESS,
-  GET_MY_PROFILE_FAILED,
+  GET_USER_INFO,
+  GET_USER_INFO_SUCCESS,
+  GET_USER_INFO_FAILED,
 
   LOGOUT,
 } from './actionTypes';
 
 // GET MY PROFILE
-export const actionGetMyProfile = (payload) => ({
-  type: GET_MY_PROFILE,
+export const actionGetUserInfo = (payload) => ({
+  type: GET_USER_INFO,
   payload,
 });
 
-export const actionGetMyProfileSuccess = (payload) => ({
-  type: GET_MY_PROFILE_SUCCESS,
+export const actionGetUserInfoSuccess = (payload) => ({
+  type: GET_USER_INFO_SUCCESS,
   payload,
 });
 
-export const actionGetMyProfileFailed = () => ({
-  type: GET_MY_PROFILE_FAILED,
+export const actionGetUserInfoFailed = () => ({
+  type: GET_USER_INFO_FAILED,
 });
 
 // LOGOUT
