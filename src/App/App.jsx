@@ -41,7 +41,7 @@ function App(props) {
 
   useEffect(() => {
     if ((!accessToken && user.id === '') || !accessToken) {
-      // navigate(LOCATIONS.LOGIN);
+      navigate(LOCATIONS.LOGIN);
       return;
     }
 

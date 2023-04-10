@@ -71,6 +71,16 @@ function SettingWarning() {
           <img className={styles.ImgWarning} src={Meco} alt="person" />
         </div>
       </div>
+
+      <div className={styles.ContainerButton}>
+        <button type="button" className={styles.Button}>
+          Cancel
+        </button>
+
+        <button type="button" className={styles.Button}>
+          Save
+        </button>
+      </div>
     </>
   );
 }

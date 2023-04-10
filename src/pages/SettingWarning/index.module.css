@@ -3,11 +3,11 @@
   align-items: center;
 
   margin-top: 40px;
-  margin-left: 19px;
 }
 
 .ContainerInfo p {
   margin-right: 4px;
+  margin-left: 19px;
 
   font-weight: 350;
 }
@@ -106,10 +106,31 @@
 
   padding-top: 32px;
   padding-bottom: 14px;
+  margin-bottom: 38px;
 
   background-color: #ffffff;
 }
 
 .ImgWarning {
   margin-left: 122px;
+}
+
+.ContainerButton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Button {
+  width: 121px;
+  height: 37px;
+
+  margin-bottom: 28px;
+  margin-right: 42px;
+
+  cursor: pointer;
+  border-radius: 8px;
+  border-style: none;
+
+  color: #ffffff;
+  background: #878787;
 }
