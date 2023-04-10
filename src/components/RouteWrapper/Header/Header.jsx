@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import HeaderIcon from 'assets/Icons/HeaderIcon.png';
@@ -8,6 +9,7 @@ import Search from 'assets/Icons/Search.png';
 import styles from './index.module.css';
 
 function Header({ title }) {
+  const user = useSelector((state) => state.User.user);
   return (
     <div>
       <div className={styles.HeaderWrapper}>
@@ -27,7 +29,7 @@ function Header({ title }) {
           <div className={styles.Divider} />
 
           <div className={styles.ProfileContainer}>
-            Jones Ferdinand
+            {user.username}
 
             <div className={styles.Circle} />
           </div>

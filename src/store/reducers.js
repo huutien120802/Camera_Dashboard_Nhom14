@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import Profile from 'store/profile/reducer';
+import User from 'store/profile/reducer';
 
 import Login from 'store/auth/login/reducer';
 
 const rootReducer = combineReducers({
-  Profile,
+  User,
 
   Login,
 });

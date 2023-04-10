@@ -29,17 +29,17 @@ function* login({ payload }) {
 
     const response = yield authAPI.login(newData);
 
-    localStorage.setItem('token', response.data.token);
+    localStorage.setItem('token', response);
 
     yield put(actionLoginSuccess());
 
     toast.success(response.message);
 
-    axiosClient.defaults.headers.Authorization = response.data.token;
+    axiosClient.defaults.headers.Authorization = response;
 
     callback();
   } catch (error) {
-    toast.error(error.response.data.message);
+    toast.error(error.response.data);
 
     yield put(actionLoginFailed());
   }

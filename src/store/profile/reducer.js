@@ -1,7 +1,7 @@
 import {
-  GET_MY_PROFILE,
-  GET_MY_PROFILE_SUCCESS,
-  GET_MY_PROFILE_FAILED,
+  GET_USER_INFO,
+  GET_USER_INFO_SUCCESS,
+  GET_USER_INFO_FAILED,
 
   LOGOUT,
 } from './actionTypes';
@@ -10,43 +10,41 @@ const initialState = {
   loading: false,
   loadingAvatar: false,
 
-  me: {
-    _id: '',
+  user: {
+    id: '',
     avatar: '',
-    createdAt: '',
-    email: '',
     username: '',
   },
 };
 
 const userProfile = (state = initialState, action) => {
   switch (action.type) {
-    // GET MY PROFILE
-    case GET_MY_PROFILE:
+    // GET USER INFO
+    case GET_USER_INFO:
       return {
         ...state,
         loading: true,
       };
 
-    case GET_MY_PROFILE_SUCCESS:
+    case GET_USER_INFO_SUCCESS:
       return {
         ...state,
         loading: false,
-        me: action.payload,
+        user: action.payload,
       };
 
-    case GET_MY_PROFILE_FAILED:
+    case GET_USER_INFO_FAILED:
       return {
         ...state,
         loading: false,
-        me: initialState.me,
+        user: initialState.user,
       };
 
     // LOGOUT
     case LOGOUT:
       return {
         ...state,
-        me: initialState.me,
+        user: initialState.user,
       };
 
     default:
