@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import Home from 'assets/Icons/Home.png';
 import Cameras from 'assets/Icons/Cameras.png';
@@ -18,49 +18,77 @@ function Dashboard() {
       <div className={styles.DashboardTitle}>Dashboard</div>
 
       <ul className={styles.DashboardItems}>
-        <Link to="/" className={styles.DashboardItem}>
+        <NavLink to="/" className={styles.DashboardItem}>
           <img src={Home} alt="home" className={styles.DashboardItemIcon} />
           Trang chủ
-        </Link>
+        </NavLink>
 
-        <Link to="/cameras" className={styles.DashboardItem}>
-          <img src={Cameras} alt="cameras" className={styles.DashboardItemIcon} />
+        <NavLink to="/cameras" className={styles.DashboardItem}>
+          <img
+            src={Cameras}
+            alt="cameras"
+            className={styles.DashboardItemIcon}
+          />
           Quản lí Camera
-        </Link>
+        </NavLink>
 
-        <Link to="/warning" className={styles.DashboardItem}>
-          <img src={Warning} alt="warning" className={styles.DashboardItemIcon} />
+        <NavLink to="/warning" className={styles.DashboardItem}>
+          <img
+            src={Warning}
+            alt="warning"
+            className={styles.DashboardItemIcon}
+          />
           Cảnh báo
-        </Link>
+        </NavLink>
 
-        <Link to="/location" className={styles.DashboardItem}>
-          <img src={Location} alt="location" className={styles.DashboardItemIcon} />
+        <NavLink to="/location" className={styles.DashboardItem}>
+          <img
+            src={Location}
+            alt="location"
+            className={styles.DashboardItemIcon}
+          />
           Khu vực
-        </Link>
+        </NavLink>
 
-        <Link to="/statistic" className={styles.DashboardItem}>
-          <img src={Statistic} alt="statistic" className={styles.DashboardItemIcon} />
+        <NavLink to="/statistic" className={styles.DashboardItem}>
+          <img
+            src={Statistic}
+            alt="statistic"
+            className={styles.DashboardItemIcon}
+          />
           Thống kê
-        </Link>
+        </NavLink>
 
-        <Link to="/contact" className={styles.DashboardItem}>
-          <img src={Contact} alt="contact" className={styles.DashboardItemIcon} />
+        <NavLink to="/contact" className={styles.DashboardItem}>
+          <img
+            src={Contact}
+            alt="contact"
+            className={styles.DashboardItemIcon}
+          />
           Liên hệ
-        </Link>
+        </NavLink>
       </ul>
 
       <span className={styles.Divider} />
 
       <ul className={styles.DashboardItems}>
-        <Link to="/setting" className={styles.DashboardItem}>
-          <img src={Setting} alt="setting" className={styles.DashboardItemIcon} />
+        <NavLink to="/setting" className={styles.DashboardItem}>
+          <img
+            src={Setting}
+            alt="setting"
+            className={styles.DashboardItemIcon}
+          />
           Cài đặt
-        </Link>
+        </NavLink>
 
-        <Link to="/register" className={styles.DashboardItem}>
-          <img src={Register} alt="register" className={styles.DashboardItemIcon} />
+        <NavLink to="/register" className={styles.DashboardItem}>
+          <img
+            src={Register}
+            alt="register"
+            className={styles.DashboardItemIcon}
+          />
           Đăng kí
-        </Link>
+        </NavLink>
       </ul>
     </div>
   );

@@ -26,8 +26,8 @@ const WarningPage = React.lazy(() => import('pages/WarningPage/WarningPage'));
 
 function App(props) {
   const {
-    me,
-    actionGetMyProfile,
+    user,
+    actionGetUserInfo,
   } = props;
 
   const navigate = useNavigate();
@@ -39,16 +39,16 @@ function App(props) {
   }
 
   useEffect(() => {
-    if ((!accessToken && me._id === '') || !accessToken) {
+    if ((!accessToken && user.id === '') || !accessToken) {
       navigate(LOCATIONS.LOGIN);
       return;
     }
 
-    actionGetMyProfile({ navigate });
+    actionGetUserInfo({ navigate });
 
     // eslint-disable-next-line consistent-return
     return () => {};
-  }, [accessToken, me.id]);
+  }, [accessToken, user.id]);
 
   return (
     <Suspense fallback={<LoadingPage />}>
@@ -80,9 +80,9 @@ function App(props) {
 }
 
 App.propTypes = {
-  me: PropTypes.instanceOf(Object).isRequired,
+  user: PropTypes.instanceOf(Object).isRequired,
 
-  actionGetMyProfile: PropTypes.func.isRequired,
+  actionGetUserInfo: PropTypes.func.isRequired,
 };
 
 export default App;
