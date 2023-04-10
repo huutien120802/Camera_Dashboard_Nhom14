@@ -19,6 +19,7 @@ const LOCATIONS = {
   SETTING: 'setting',
   LOGIN: 'login',
   REGISTER: 'register',
+  SETTINGWARNING: 'settingwarning',
 };
 
 export default LOCATIONS;

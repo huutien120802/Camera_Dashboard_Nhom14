@@ -23,6 +23,7 @@ const RegisterPage = React.lazy(() => import('pages/RegisterPage/RegisterPage'))
 const StatisticPage = React.lazy(() => import('pages/StatisticPage/StatisticPage'));
 const SettingPage = React.lazy(() => import('pages/SettingPage/SettingPage'));
 const WarningPage = React.lazy(() => import('pages/WarningPage/WarningPage'));
+const SettingWarning = React.lazy(() => import('pages/SettingWarning/SettingWarning'));
 
 function App(props) {
   const {
@@ -40,7 +41,7 @@ function App(props) {
 
   useEffect(() => {
     if ((!accessToken && me._id === '') || !accessToken) {
-      navigate(LOCATIONS.LOGIN);
+      // navigate(LOCATIONS.LOGIN);
       return;
     }
 
@@ -71,6 +72,8 @@ function App(props) {
           <Route path={LOCATIONS.SETTING} element={RouteWrapper(SettingPage, 'Cài đặt')} />
 
           <Route path={LOCATIONS.REGISTER} element={RouteWrapper(RegisterPage, 'Đăng kí')} />
+
+          <Route path={LOCATIONS.SETTINGWARNING} element={RouteWrapper(SettingWarning, 'Cài đặt cảnh báo')} />
         </Route>
 
         <Route path="*" element={<Pages404 />} />

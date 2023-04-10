@@ -6,6 +6,7 @@ import tick from 'assets/Icons/tick.png';
 import trash from 'assets/Icons/trash.png';
 import setting1 from 'assets/Icons/setting1.png';
 
+import { useNavigate } from 'react-router-dom';
 import styles from './index.module.css';
 
 const data = [
@@ -19,6 +20,12 @@ const tableHead = {
 };
 
 function WarningPage() {
+  const navigate = useNavigate();
+
+  const settingWarningButtonHandle = () => {
+    navigate('/settingwarning');
+  };
+
   return (
     <>
       <div className={styles.FunctionalContainer}>
@@ -34,11 +41,11 @@ function WarningPage() {
           Xóa thông báo
         </div>
 
-        <div className={styles.IconContainer}>
+        <button type="button" onClick={settingWarningButtonHandle} className={styles.IconContainer}>
           <img src={setting1} alt="setting1" />
 
           Cài đặt cảnh báo
-        </div>
+        </button>
       </div>
 
       <DataTable title="Lịch sử cảnh báo" data={data} tableHead={tableHead} />
