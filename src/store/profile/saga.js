@@ -40,11 +40,11 @@ function* getUserInfo({ payload }) {
 
 function logout({ payload }) {
   try {
-    const { history } = payload;
+    const { navigate } = payload;
 
     localStorage.removeItem('token');
 
-    history.push(LOCATIONS.LOGIN);
+    navigate(LOCATIONS.LOGIN);
   } catch (error) {
     apiErrorHandler(error);
   }

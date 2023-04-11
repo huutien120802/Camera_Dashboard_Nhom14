@@ -49,5 +49,39 @@
   display: flex;
   align-items: center;
 
+  position: relative;
+
   gap: 16px;
+}
+
+.DropDown {
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.DropDownMenu {
+  margin-top: 8px;
+
+  position: absolute;
+  bottom: -30px;
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f5f1de;
+}
+
+.LogoutButton {
+  height: 30px;
+
+  font-size: 14px;
+
+  border: none;
+}
+
+.LogoutButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+
+  cursor: pointer;
 }
