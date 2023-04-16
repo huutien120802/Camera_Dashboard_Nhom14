@@ -6,7 +6,9 @@ import filter from 'assets/Icons/filter.png';
 
 import styles from './index.module.css';
 
-function DataTable({ title, tableHead, data }) {
+function DataTable({
+  title, tableHead, data, loading,
+}) {
   return (
     <div className={styles.Container}>
       <div className={styles.TitleContainer}>
@@ -43,17 +45,23 @@ function DataTable({ title, tableHead, data }) {
         </div>
 
         <div className={styles.BodyContainer}>
-          {data.map((row) => (
-            <div key={row.id} className={styles.RowContainer}>
-              <input type="checkbox" />
-
-              {Object.keys(row).slice(1).map((key) => (
-                <div key={key}>{row[key]}</div>
-              ))}
-
-              <span className={styles.Divider} />
-            </div>
-          ))}
+          {loading
+            ? (
+              <div className={styles.Loading} />
+            )
+            : (
+              <div>
+                {data.map((row) => (
+                  <div key={row._id} className={styles.RowContainer}>
+                    <input type="checkbox" />
+                    {Object.keys(row).slice(1).map((key) => (
+                      <div key={key}>{row[key]}</div>
+                    ))}
+                    <span className={styles.Divider} />
+                  </div>
+                ))}
+              </div>
+            )}
         </div>
       </div>
     </div>
@@ -64,6 +72,7 @@ DataTable.propTypes = {
   title: PropTypes.string.isRequired,
   tableHead: PropTypes.instanceOf(Object).isRequired,
   data: PropTypes.instanceOf(Array).isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default DataTable;

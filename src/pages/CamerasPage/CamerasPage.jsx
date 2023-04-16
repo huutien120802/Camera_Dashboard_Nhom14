@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { actionGetAllCameras } from 'store/actions';
 
 import DataTable from 'components/DataTable/DataTable';
-
-const data = [
-  {
-    id: 1, serial: 'ABC123-456789', homeId: 'H56213454', connection: 'Connecting', level: 'High',
-  },
-  {
-    id: 2, serial: 'DEF456-fds789', homeId: 'H56213454', connection: 'Disconnected', level: 'Normal',
-  },
-];
 
 const tableHead = {
   serial: 'Serial', homeId: 'Home ID', connection: 'Connection', level: 'Security Level',
 };
 
 function CamerasPage() {
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.Camera);
+
+  const transformedData = data.cameras.map((item) => ({
+    ...item,
+    connection: item.connection ? 'Connected' : 'Disconnected',
+  }));
+
+  useEffect(() => {
+    dispatch(actionGetAllCameras());
+  }, []);
+
   return (
-    <DataTable title="Camera" data={data} tableHead={tableHead} />
+    <DataTable title="Camera" data={transformedData} tableHead={tableHead} loading={data.loading} />
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
@@ -11,7 +11,8 @@ import LOCATIONS, {
   EMAIL_REGEX, TEXT_LENGTH_LIMIT,
 } from 'constants/index';
 
-import unsee from 'assets/Icons/unsee.png';
+import unsee from 'assets/Icons/invisible.png';
+import see from 'assets/Icons/eye.png';
 
 import styles from './index.module.css';
 
@@ -19,6 +20,7 @@ function LoginPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const accessToken = localStorage.getItem('token');
+  const loading = useSelector((state) => state.Login.loading);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -109,7 +111,7 @@ function LoginPage() {
 
           <div className={styles.PasswordContainer}>
             <input
-              type={showPassword ? 'password' : 'text'}
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               name="password"
               onChange={validation.handleChange}
@@ -127,14 +129,30 @@ function LoginPage() {
               className={styles.Unsee}
               onClick={onToggleShowPassWord}
             >
-              <img
-                src={unsee}
-                alt="unsee"
-              />
+              {showPassword ? (
+                <img
+                  src={see}
+                  alt="see"
+                />
+              ) : (
+                <img
+                  src={unsee}
+                  alt="unsee"
+                />
+              )}
+
             </button>
           </div>
 
-          <button type="submit" className={styles.Button}>Log In</button>
+          {loading ? (
+            <button type="submit" className={styles.Button} disabled>
+              <div className={styles.Loader} />
+            </button>
+          ) : (
+            <button type="submit" className={styles.Button}>
+              Log In
+            </button>
+          )}
         </form>
 
         <div>
