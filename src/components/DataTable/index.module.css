@@ -123,3 +123,30 @@
 .BodyContainer div.RowContainer {
   padding-right: 50px;
 }
+
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.Loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.Loading::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 4px;
+  margin-bottom: 8px;
+  background-color: #ccc;
+  animation: loading 1s ease-in-out infinite;
+}
