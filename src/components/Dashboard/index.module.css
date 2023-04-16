@@ -46,13 +46,13 @@
   margin-right: 25px;
 }
 
-a {
+.DashboardItems a {
   position: relative;
   z-index: 0;
   transition: all 0.3s ease;
 }
 
-a::after {
+.DashboardItems a::after {
   content: '';
   position: absolute;
   width: 0;
@@ -64,10 +64,10 @@ a::after {
   background-image: linear-gradient(to right, #5e42a6, #b74e91);
 }
 
-a.active {
+.DashboardItems a.active {
   color: white;
 }
-a.active::before {
+.DashboardItems a.active::before {
   content: '';
   position: absolute;
   top: 0;
@@ -81,11 +81,11 @@ a.active::before {
   background-color: #ab92eb;
 }
 
-a:hover {
+.DashboardItems a:hover {
   color: white;
 }
 
-a:not(.active):hover::after {
+.DashboardItems a:not(.active):hover::after {
   width: 60%;
   animation: identifier 0.5s;
 }

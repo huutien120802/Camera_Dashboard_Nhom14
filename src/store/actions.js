@@ -1,3 +1,7 @@
-export * from 'store/profile/actions';
+export * from 'store/user/actions';
+export * from 'store/cameras/actions';
+export * from 'store/locations/actions';
+export * from 'store/warnings/actions';
+export * from 'store/statistics/actions';
 
 export * from 'store/auth/login/actions';
