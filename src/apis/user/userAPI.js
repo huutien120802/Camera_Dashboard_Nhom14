@@ -10,4 +10,12 @@ export default {
 
     return response.data;
   },
+
+  async getAllUsers() {
+    const path = `${endpoint}/`;
+
+    const response = await axiosClient.get(path);
+
+    return response.data;
+  },
 };
