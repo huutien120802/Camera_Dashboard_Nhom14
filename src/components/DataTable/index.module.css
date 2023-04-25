@@ -40,6 +40,10 @@
 
   margin-left: 34px;
 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
   gap: 9px;
 }
 

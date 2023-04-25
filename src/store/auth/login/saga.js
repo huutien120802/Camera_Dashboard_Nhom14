@@ -33,9 +33,9 @@ function* login({ payload }) {
 
     yield put(actionLoginSuccess());
 
-    toast.success(response.message);
+    toast.success('You have been logged in successfully.');
 
-    axiosClient.defaults.headers.Authorization = response;
+    axiosClient.defaults.headers.Authorization = `Bearer ${response}`;
 
     callback();
   } catch (error) {

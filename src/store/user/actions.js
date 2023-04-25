@@ -6,7 +6,7 @@ import {
   LOGOUT,
 } from './actionTypes';
 
-// GET MY PROFILE
+// GET USER INFO
 export const actionGetUserInfo = (payload) => ({
   type: GET_USER_INFO,
   payload,

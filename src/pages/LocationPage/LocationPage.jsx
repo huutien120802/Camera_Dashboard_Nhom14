@@ -11,7 +11,7 @@ const tableHead = {
 
 function LocationPage() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.Location);
+  const data = useSelector((state) => state.Locations);
 
   useEffect(() => {
     dispatch(actionGetAllLocations());

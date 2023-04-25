@@ -10,6 +10,7 @@ import {
 } from 'utils/index';
 
 // Login Redux States
+import { toast } from 'react-toastify';
 import {
   GET_USER_INFO,
   LOGOUT,
@@ -43,6 +44,8 @@ function logout({ payload }) {
     const { navigate } = payload;
 
     localStorage.removeItem('token');
+
+    toast.info('You have been logged out successfully.');
 
     navigate(LOCATIONS.LOGIN);
   } catch (error) {

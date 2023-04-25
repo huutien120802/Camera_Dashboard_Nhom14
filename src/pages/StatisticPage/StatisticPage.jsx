@@ -16,7 +16,7 @@ const tableHead = {
 
 function StatisticPage() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.Statistic);
+  const data = useSelector((state) => state.Statistics);
 
   useEffect(() => {
     dispatch(actionGetAllStatistics());

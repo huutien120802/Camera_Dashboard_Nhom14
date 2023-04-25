@@ -19,7 +19,7 @@ const tableHead = {
 function WarningPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.Warning);
+  const data = useSelector((state) => state.Warnings);
 
   const settingWarningButtonHandle = () => {
     navigate('/settingwarning');

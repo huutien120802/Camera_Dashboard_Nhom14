@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { actionGetAllCameras, actionGetAllUsers } from 'store/actions';
 
 import styles from './index.module.css';
 
 function HomePage() {
+  const dispatch = useDispatch();
+  const cameras = useSelector((state) => state.Cameras.cameras);
+  const users = useSelector((state) => state.Users.users);
+
+  useEffect(() => {
+    dispatch(actionGetAllCameras());
+    dispatch(actionGetAllUsers());
+  }, []);
+
   return (
     <div className={styles.Container}>
       <div className={styles.ContainerDescription}>
@@ -12,7 +24,7 @@ function HomePage() {
           </p>
 
           <p className={styles.Number}>
-            60
+            {cameras.length}
           </p>
         </div>
 
@@ -22,7 +34,7 @@ function HomePage() {
           </p>
 
           <p className={styles.Number}>
-            64
+            {users.length}
           </p>
         </div>
       </div>

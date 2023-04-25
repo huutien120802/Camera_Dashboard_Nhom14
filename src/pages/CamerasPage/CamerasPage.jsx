@@ -11,7 +11,7 @@ const tableHead = {
 
 function CamerasPage() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.Camera);
+  const data = useSelector((state) => state.Cameras);
 
   const transformedData = data.cameras.map((item) => ({
     ...item,

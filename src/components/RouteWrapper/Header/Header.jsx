@@ -47,9 +47,15 @@ function Header({ title }) {
           <div className={styles.ProfileContainer}>
             {user.username}
 
-            <button type="button" onClick={toggleMenu} className={styles.DropDown}>
-              <div className={styles.Circle} />
-            </button>
+            {user.avatar ? (
+              <button type="button" onClick={toggleMenu} className={styles.DropDown}>
+                <img src={user.avatar} alt="avatar" className={styles.Circle} />
+              </button>
+            ) : (
+              <button type="button" onClick={toggleMenu} className={styles.DropDown}>
+                <div className={styles.Circle} />
+              </button>
+            )}
 
             {isOpen && (
             <div className={styles.DropDownMenu}>
