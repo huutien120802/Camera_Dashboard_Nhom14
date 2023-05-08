@@ -38,8 +38,6 @@
   font-weight: 600;
   letter-spacing: 0.2px;
 
-  margin-left: 34px;
-
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -72,7 +70,9 @@
   position: relative;
 }
 
-.BodyContainer {
+.FilterInput {
+  margin-left: 34px;
+  margin-right: 10px;
 }
 
 .Divider {

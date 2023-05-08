@@ -13,15 +13,46 @@ function DataTable({
   const [checkedCount, setCheckedCount] = useState(0);
   const [allRowsChecked, setAllRowsChecked] = useState(false);
   const [sortedData, setSortedData] = useState(data);
+  const [sortColumn, setSortColumn] = useState('');
+  const [sortOrder, setSortOrder] = useState('asc');
+  const [filterValue, setFilterValue] = useState('');
 
-  const handleSortClick = () => {
-    const sorted = [...data]
-      .sort((a, b) => a[Object.keys(a)[1]].localeCompare(b[Object.keys(b)[1]]));
+  const handleSortClick = (column) => () => {
+    let order = 'asc';
+
+    if (sortColumn === column && sortOrder === 'asc') {
+      order = 'desc';
+    }
+
+    setSortColumn(column);
+    setSortOrder(order);
+
+    const sorted = [...data].sort((a, b) => {
+      const columnA = a[column].toUpperCase();
+      const columnB = b[column].toUpperCase();
+
+      let comparison = 0;
+      if (columnA > columnB) {
+        comparison = 1;
+      } else if (columnA < columnB) {
+        comparison = -1;
+      }
+
+      return order === 'desc' ? comparison * -1 : comparison;
+    });
 
     setSortedData(sorted);
   };
 
-  const handleFilterClick = () => {
+  const handleFilterClick = (value) => () => {
+    const filtered = [...data]
+      .filter((row) => Object.keys(row).some((key) => row[key].includes(value)));
+
+    setSortedData(filtered);
+  };
+
+  const handleFilterChange = (e) => {
+    setFilterValue(e.target.value);
   };
 
   const handleCheckboxChange = (e) => {
@@ -52,6 +83,28 @@ function DataTable({
     setSortedData(data);
   }, [data]);
 
+  useEffect(() => {
+    let sorted = [...data];
+
+    if (sortColumn !== '') {
+      sorted = sorted.sort((a, b) => {
+        const columnA = a[sortColumn].toUpperCase();
+        const columnB = b[sortColumn].toUpperCase();
+
+        let comparison = 0;
+        if (columnA > columnB) {
+          comparison = 1;
+        } else if (columnA < columnB) {
+          comparison = -1;
+        }
+
+        return sortOrder === 'desc' ? comparison * -1 : comparison;
+      });
+    }
+
+    setSortedData(sorted);
+  }, [data, sortColumn, sortOrder]);
+
   return (
     <div className={styles.Container}>
       <div className={styles.TitleContainer}>
@@ -60,13 +113,15 @@ function DataTable({
         </div>
 
         <div className={styles.TitleContainerRight}>
-          <button type="button" className={styles.IconContainer} onClick={handleSortClick}>
+          <button type="button" className={styles.IconContainer} onClick={handleSortClick(Object.keys(tableHead)[0])}>
             <img src={sort} alt="sort" />
 
             Sort
           </button>
 
-          <button type="button" className={styles.IconContainer} onClick={handleFilterClick}>
+          <input type="text" value={filterValue} onChange={handleFilterChange} className={styles.FilterInput} />
+
+          <button type="button" className={styles.IconContainer} onClick={handleFilterClick(filterValue)}>
             <img src={filter} alt="filter" />
 
             Filter
