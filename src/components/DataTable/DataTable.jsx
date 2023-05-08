@@ -16,13 +16,12 @@ function DataTable({
 
   const handleSortClick = () => {
     const sorted = [...data]
-      .sort((a, b) => a[Object.keys(a)[0]].localeCompare(b[Object.keys(b)[0]]));
+      .sort((a, b) => a[Object.keys(a)[1]].localeCompare(b[Object.keys(b)[1]]));
 
     setSortedData(sorted);
   };
 
   const handleFilterClick = () => {
-
   };
 
   const handleCheckboxChange = (e) => {
