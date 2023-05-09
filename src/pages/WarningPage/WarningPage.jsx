@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { actionGetAllWarnings } from 'store/actions';
+import { actionGetAllWarnings, actionRemoveWarnings, actionMarkAsReadedWarnings } from 'store/actions';
 
 import DataTable from 'components/DataTable/DataTable';
 
@@ -21,8 +21,18 @@ function WarningPage() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.Warnings);
 
+  const [selectedRows, setSelectedRows] = useState([]);
+
   const settingWarningButtonHandle = () => {
     navigate('/settingwarning');
+  };
+
+  const markAsReaded = () => {
+    dispatch(actionMarkAsReadedWarnings(selectedRows));
+  };
+
+  const removeWarning = () => {
+    dispatch(actionRemoveWarnings(selectedRows));
   };
 
   useEffect(() => {
@@ -32,17 +42,17 @@ function WarningPage() {
   return (
     <>
       <div className={styles.FunctionalContainer}>
-        <div className={styles.IconContainer}>
+        <button type="button" onClick={markAsReaded} className={styles.IconContainer}>
           <img src={tick} alt="tick" />
 
           Đánh dấu đã đọc
-        </div>
+        </button>
 
-        <div className={styles.IconContainer}>
+        <button type="button" onClick={removeWarning} className={styles.IconContainer}>
           <img src={trash} alt="trash" />
 
           Xóa thông báo
-        </div>
+        </button>
 
         <button type="button" onClick={settingWarningButtonHandle} className={styles.IconContainer}>
           <img src={setting1} alt="setting1" />
@@ -51,7 +61,7 @@ function WarningPage() {
         </button>
       </div>
 
-      <DataTable title="Lịch sử cảnh báo" data={data.warnings} tableHead={tableHead} loading={data.loading} />
+      <DataTable title="Lịch sử cảnh báo" data={data.warnings} tableHead={tableHead} loading={data.loading} setSelectedRows={setSelectedRows} />
     </>
   );
 }

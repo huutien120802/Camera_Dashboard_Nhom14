@@ -8,7 +8,7 @@ import filter from 'assets/Icons/filter.png';
 import styles from './index.module.css';
 
 function DataTable({
-  title, tableHead, data, loading,
+  title, tableHead, data, loading, setSelectedRows,
 }) {
   const [checkedCount, setCheckedCount] = useState(0);
   const [allRowsChecked, setAllRowsChecked] = useState(false);
@@ -60,9 +60,13 @@ function DataTable({
     setAllRowsChecked(isChecked);
     const checkedCountDelta = isChecked ? sortedData.length : -checkedCount;
     setCheckedCount((prevState) => prevState + checkedCountDelta);
-    sortedData.forEach((row) => {
-      row.checked = isChecked;
-    });
+    const updatedData = sortedData.map((row) => ({ ...row, checked: isChecked }));
+    setSortedData(updatedData);
+
+    const selectedRowIds = updatedData
+      .filter((row) => row.checked)
+      .map((row) => row._id);
+    setSelectedRows(selectedRowIds);
   };
 
   const handleRowCheckboxChange = (rowIndex) => (e) => {
@@ -71,6 +75,11 @@ function DataTable({
     setCheckedCount((prevState) => prevState + checkedCountDelta);
     sortedData[rowIndex].checked = isChecked;
     setAllRowsChecked(checkedCount + checkedCountDelta === sortedData.length);
+
+    const selectedRowIds = sortedData
+      .filter((row) => row.checked)
+      .map((row) => row._id);
+    setSelectedRows(selectedRowIds);
   };
 
   useEffect(() => {
@@ -151,10 +160,17 @@ function DataTable({
               <div>
                 {sortedData.map((row, rowIndex) => (
                   <div key={row._id} className={styles.RowContainer}>
-                    <input type="checkbox" checked={row.checked} onChange={handleRowCheckboxChange(rowIndex)} />
-                    {Object.keys(row).slice(1).map((key) => (
-                      <div key={key}>{row[key]}</div>
-                    ))}
+                    <input type="checkbox" checked={!!row.checked} onChange={handleRowCheckboxChange(rowIndex)} />
+
+                    {Object.keys(row)
+                      .filter((key) => !(Object.prototype.hasOwnProperty.call(row, 'checked')
+                      && key === 'checked')
+                      && key !== '_id'
+                      && key !== 'isReaded')
+                      .map((key) => (
+                        <div key={key} className={row.isReaded ? styles.IsRead : ''}>{row[key]}</div>
+                      ))}
+
                     <span className={styles.Divider} />
                   </div>
                 ))}
@@ -171,6 +187,11 @@ DataTable.propTypes = {
   tableHead: PropTypes.instanceOf(Object).isRequired,
   data: PropTypes.instanceOf(Array).isRequired,
   loading: PropTypes.bool.isRequired,
+  setSelectedRows: PropTypes.func,
+};
+
+DataTable.defaultProps = {
+  setSelectedRows: () => {},
 };
 
 export default DataTable;

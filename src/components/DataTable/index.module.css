@@ -154,3 +154,7 @@
   background-color: #ccc;
   animation: loading 1s ease-in-out infinite;
 }
+
+.IsRead {
+  font-weight: 300;
+}
