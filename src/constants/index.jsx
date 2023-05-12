@@ -15,6 +15,7 @@ const LOCATIONS = {
   WARNING: 'warning',
   LOCATION: 'location',
   STATISTIC: 'statistic',
+  CHART: 'chart',
   CONTACT: 'contact',
   SETTING: 'setting',
   LOGIN: 'login',

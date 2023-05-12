@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { actionAddWarning } from 'store/actions';
 
 import DropButton from 'assets/Icons/DropButton.png';
 import Person from 'assets/Images/missingperson1.png';
@@ -7,6 +10,29 @@ import Meco from 'assets/Images/meco_office.png';
 import styles from './index.module.css';
 
 function SettingWarning() {
+  const dispatch = useDispatch();
+
+  const [name, setName] = useState('');
+  const [selectedValue, setSelectedValue] = useState('High');
+
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleAddWarning = () => {
+    dispatch(actionAddWarning({
+      content: name,
+      location: 'H56213454',
+      serial: 'ABC456-fds789',
+      securityLevel: selectedValue,
+      playback: '/',
+    }));
+  };
+
   return (
     <>
       <p>Cài đặt</p>
@@ -14,7 +40,13 @@ function SettingWarning() {
       <div className={styles.ContainerInfo}>
         <p>Tên cảnh báo:</p>
 
-        <input className={styles.InputNameWarning} type="text" placeholder="Cảnh báo 1" />
+        <input
+          className={styles.InputNameWarning}
+          type="text"
+          placeholder="Cảnh báo 1"
+          value={name}
+          onChange={handleNameChange}
+        />
       </div>
 
       <div className={styles.ContainerSetting}>
@@ -34,12 +66,17 @@ function SettingWarning() {
           <input type="text" />
 
           <span>Mức độ cảnh báo</span>
-          <select className={styles.Select} id="">
-            <option value="high">High</option>
+          <select
+            className={styles.Select}
+            id=""
+            onChange={handleSelectChange}
+            value={selectedValue}
+          >
+            <option value="High">High</option>
 
-            <option value="medium">Medium</option>
+            <option value="Medium">Medium</option>
 
-            <option value="low">Low</option>
+            <option value="Low">Low</option>
           </select>
         </div>
       </div>
@@ -77,7 +114,7 @@ function SettingWarning() {
           Cancel
         </button>
 
-        <button type="button" className={styles.Button}>
+        <button type="button" onClick={handleAddWarning} className={styles.Button}>
           Save
         </button>
       </div>
