@@ -13,7 +13,7 @@ function RegisterPage() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.Users);
 
-  const transformData = data.users.map(({ id, username, email }) => ({ id, username, email }));
+  const transformData = data.users.map(({ _id, username, email }) => ({ _id, username, email }));
 
   useEffect(() => {
     dispatch(actionGetAllUsers());

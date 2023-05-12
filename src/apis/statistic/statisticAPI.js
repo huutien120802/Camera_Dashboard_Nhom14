@@ -8,4 +8,14 @@ export default {
 
     return response.data;
   },
+
+  async markAsReadedStatistics(data) {
+    const response = await axiosClient.put(`${endpoint}/mark-read`, data);
+    return response.data;
+  },
+
+  async removeStatistics(data) {
+    const response = await axiosClient.delete(endpoint, { data });
+    return response.data;
+  },
 };

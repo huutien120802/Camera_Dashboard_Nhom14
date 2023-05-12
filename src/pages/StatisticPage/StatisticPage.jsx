@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { actionGetAllStatistics } from 'store/actions';
+import { actionGetAllStatistics, actionMarkAsReadedStatistics, actionRemoveStatistics } from 'store/actions';
 
 import DataTable from 'components/DataTable/DataTable';
 
@@ -16,7 +17,22 @@ const tableHead = {
 
 function StatisticPage() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const data = useSelector((state) => state.Statistics);
+
+  const [selectedRows, setSelectedRows] = useState([]);
+
+  const handleDirectBtnClick = () => {
+    navigate('/chart');
+  };
+
+  const markAsReaded = () => {
+    dispatch(actionMarkAsReadedStatistics(selectedRows));
+  };
+
+  const removeWarning = () => {
+    dispatch(actionRemoveStatistics(selectedRows));
+  };
 
   useEffect(() => {
     dispatch(actionGetAllStatistics());
@@ -25,24 +41,26 @@ function StatisticPage() {
   return (
     <>
       <div className={styles.FunctionalContainer}>
-        <div>Nút chuyển thống kê và đếm người</div>
+        <button type="button" className={styles.DirectedBtn} onClick={handleDirectBtnClick}>
+          Nút chuyển thống kê và đếm người
+        </button>
 
         <div className={styles.FunctionalContainerRight}>
-          <div className={styles.IconContainer}>
+          <button type="button" onClick={markAsReaded} className={styles.IconContainer}>
             <img src={tick} alt="tick" />
 
             Đánh dấu đã đọc
-          </div>
+          </button>
 
-          <div className={styles.IconContainer}>
+          <button type="button" onClick={removeWarning} className={styles.IconContainer}>
             <img src={trash} alt="trash" />
 
             Xóa thông báo
-          </div>
+          </button>
         </div>
       </div>
 
-      <DataTable title="Thống kê" data={data.statistics} tableHead={tableHead} loading={data.loading} />
+      <DataTable title="Thống kê" data={data.statistics} tableHead={tableHead} loading={data.loading} setSelectedRows={setSelectedRows} />
     </>
   );
 }

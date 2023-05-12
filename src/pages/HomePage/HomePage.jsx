@@ -34,7 +34,7 @@ function HomePage() {
           </p>
 
           <p className={styles.Number}>
-            {users.length ? users.length : 0}
+            {users?.length ? users?.length : 0}
           </p>
         </div>
       </div>

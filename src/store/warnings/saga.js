@@ -1,12 +1,13 @@
 import { put, takeLeading } from 'redux-saga/effects';
 
+import { toast } from 'react-toastify';
+
 import warningAPI from 'apis/warning/warningAPI';
 
 import {
   apiErrorHandler,
 } from 'utils/index';
 
-import { toast } from 'react-toastify';
 import {
   GET_ALL_WARNINGS,
   ADD_WARNING,

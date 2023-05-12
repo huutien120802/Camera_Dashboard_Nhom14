@@ -20,7 +20,6 @@ const initialState = {
 
 const warnings = (state = initialState, action) => {
   switch (action.type) {
-    // GET USER INFO
     case GET_ALL_WARNINGS:
       return {
         ...state,

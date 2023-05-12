@@ -21,6 +21,7 @@ const HomePage = React.lazy(() => import('pages/HomePage/HomePage'));
 const LocationPage = React.lazy(() => import('pages/LocationPage/LocationPage'));
 const RegisterPage = React.lazy(() => import('pages/RegisterPage/RegisterPage'));
 const StatisticPage = React.lazy(() => import('pages/StatisticPage/StatisticPage'));
+const ChartPage = React.lazy(() => import('pages/ChartPage/ChartPage'));
 const SettingPage = React.lazy(() => import('pages/SettingPage/SettingPage'));
 const WarningPage = React.lazy(() => import('pages/WarningPage/WarningPage'));
 const SettingWarning = React.lazy(() => import('pages/SettingWarning/SettingWarning'));
@@ -66,6 +67,8 @@ function App(props) {
           <Route path={LOCATIONS.LOCATION} element={RouteWrapper(LocationPage, 'Khu vực')} />
 
           <Route path={LOCATIONS.STATISTIC} element={RouteWrapper(StatisticPage, 'Thống kê')} />
+
+          <Route path={LOCATIONS.CHART} element={RouteWrapper(ChartPage, 'Biểu đồ')} />
 
           <Route path={LOCATIONS.CONTACT} element={RouteWrapper(ContactPage, 'Liên hệ')} />
 
