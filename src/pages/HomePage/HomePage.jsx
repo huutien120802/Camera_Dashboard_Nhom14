@@ -44,7 +44,7 @@ function HomePage() {
           cameras.map((camera) => (
             camera.connection ? (
               <video muted autoPlay className={styles.CameraItem} key={camera._id}>
-                <source src={`http://localhost:3009/api/videos/${camera.videoId}`} type="video/mp4" />
+                <source src={`https://camera-dashboard-be.onrender.com/api/videos/${camera.videoId}`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             ) : <div key={camera._id} className={styles.CameraItem} />
