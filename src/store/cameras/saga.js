@@ -1,5 +1,7 @@
 import { put, takeLeading } from 'redux-saga/effects';
 
+import axiosClient from 'utils/axios';
+
 import cameraAPI from 'apis/camera/cameraAPI';
 
 import {
@@ -17,6 +19,10 @@ import {
 
 function* getAllCameras() {
   try {
+    const token = localStorage.getItem('token');
+
+    axiosClient.defaults.headers.Authorization = `Bearer ${token}`;
+
     const response = yield cameraAPI.getAllCameras();
 
     yield put(actionGetAllCamerasSuccess(response));

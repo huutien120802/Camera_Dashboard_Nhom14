@@ -18,4 +18,12 @@ export default {
 
     return response.data;
   },
+
+  async getCountProfile() {
+    const path = `${endpoint}/count`;
+
+    const response = await axiosClient.get(path);
+
+    return response.data;
+  },
 };

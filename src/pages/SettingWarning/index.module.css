@@ -77,11 +77,12 @@
 }
 
 .Select {
-  width: 80px;
+  width: 100px;
   height: 23px;
 
   margin-left: 18px;
   padding-left: 4px;
+  margin-bottom: 20px;
 
   border-style: none;
   background-color: #d9d9d9;

@@ -6,8 +6,6 @@ import PropTypes from 'prop-types';
 import { actionLogout } from 'store/actions';
 
 import HeaderIcon from 'assets/Icons/HeaderIcon.png';
-import Notification from 'assets/Icons/Notification.png';
-import Search from 'assets/Icons/Search.png';
 
 import styles from './index.module.css';
 
@@ -38,9 +36,9 @@ function Header({ title }) {
         </div>
 
         <div className={styles.RightContainer}>
-          <img src={Search} alt="search" />
+          {/* <img src={Search} alt="search" />
 
-          <img src={Notification} alt="notification" />
+          <img src={Notification} alt="notification" /> */}
 
           <div className={styles.Divider} />
 

@@ -1,8 +1,8 @@
 import { put, takeLeading } from 'redux-saga/effects';
 
-import userAPI from 'apis/user/userAPI';
-
 import axiosClient from 'utils/axios';
+
+import userAPI from 'apis/user/userAPI';
 
 import {
   apiErrorHandler,
@@ -10,11 +10,15 @@ import {
 
 import {
   GET_ALL_USERS,
+  GET_COUNT_PROFILE,
 } from './actionTypes';
 
 import {
   actionGetAllUsersSuccess,
   actionGetAllUsersFailed,
+
+  actionGetCountProfileSuccess,
+  actionGetCountProfileFailed,
 } from './actions';
 
 function* getAllUsers() {
@@ -33,6 +37,17 @@ function* getAllUsers() {
   }
 }
 
+function* getCountProfile() {
+  try {
+    const response = yield userAPI.getCountProfile();
+    yield put(actionGetCountProfileSuccess(response));
+  } catch (error) {
+    apiErrorHandler(error);
+    yield put(actionGetCountProfileFailed());
+  }
+}
+
 export default function* UserProfileSaga() {
   yield takeLeading(GET_ALL_USERS, getAllUsers);
+  yield takeLeading(GET_COUNT_PROFILE, getCountProfile);
 }

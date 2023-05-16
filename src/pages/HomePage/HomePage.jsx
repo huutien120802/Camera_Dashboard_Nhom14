@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { actionGetAllCameras, actionGetAllUsers } from 'store/actions';
+import { actionGetAllCameras, actionGetCountProfile } from 'store/actions';
 
 import styles from './index.module.css';
 
 function HomePage() {
   const dispatch = useDispatch();
   const cameras = useSelector((state) => state.Cameras.cameras);
-  const users = useSelector((state) => state.Users.users);
+  const countProfile = useSelector((state) => state.Users.countProfile);
 
   useEffect(() => {
     dispatch(actionGetAllCameras());
-    dispatch(actionGetAllUsers());
+    dispatch(actionGetCountProfile());
   }, []);
 
   return (
@@ -34,7 +34,7 @@ function HomePage() {
           </p>
 
           <p className={styles.Number}>
-            {users?.length ? users?.length : 0}
+            {countProfile}
           </p>
         </div>
       </div>
@@ -42,10 +42,12 @@ function HomePage() {
       <div className={styles.ContainerCamera}>
         {cameras ? (
           cameras.map((camera) => (
-            <video muted autoPlay className={styles.CameraItem} key={camera._id}>
-              <source src={camera.url ? '' : 'http://localhost:3009/api/videos'} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            camera.connection ? (
+              <video muted autoPlay className={styles.CameraItem} key={camera._id}>
+                <source src={`http://localhost:3009/api/videos/${camera.videoId}`} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : <div key={camera._id} className={styles.CameraItem} />
           ))
 
         ) : <div className={styles.CameraItem} />}

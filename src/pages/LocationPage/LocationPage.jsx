@@ -18,7 +18,7 @@ function LocationPage() {
   }, []);
 
   return (
-    <DataTable title="Khu vực" data={data.locations} tableHead={tableHead} loading={data.loading} />
+    <DataTable title="Home" data={data.locations} tableHead={tableHead} loading={data.loading} />
   );
 }
 
