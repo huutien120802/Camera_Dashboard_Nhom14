@@ -2,9 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import DatePicker from 'react-datepicker';
+
 import sort from 'assets/Icons/sort.png';
 import filter from 'assets/Icons/filter.png';
 
+import 'react-datepicker/dist/react-datepicker.css';
 import styles from './index.module.css';
 
 function DataTable({
@@ -16,6 +19,7 @@ function DataTable({
   const [sortColumn, setSortColumn] = useState('');
   const [sortOrder, setSortOrder] = useState('asc');
   const [filterValue, setFilterValue] = useState('');
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const handleSortClick = (column) => () => {
     let order = 'asc';
@@ -114,11 +118,31 @@ function DataTable({
     setSortedData(sorted);
   }, [data, sortColumn, sortOrder]);
 
+  useEffect(() => {
+    const filtered = data.filter((row) => {
+      if (row.time) {
+        const rowDate = new Date(row.time).toISOString().split('T')[0];
+        const selectedDateLocal = new Date(selectedDate);
+        selectedDateLocal.setDate(selectedDateLocal.getDate() + 1);
+        const selectedDateMinusOneDay = selectedDateLocal.toISOString().split('T')[0];
+        return rowDate === selectedDateMinusOneDay;
+      }
+      return false;
+    });
+
+    setSortedData(filtered);
+  }, [selectedDate]);
+
   return (
     <div className={styles.Container}>
       <div className={styles.TitleContainer}>
         <div className={styles.Title}>
-          {title}
+          {title === 'Thống kê' ? (
+            <div>
+              <div>{title}</div>
+              <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
+            </div>
+          ) : { title }}
         </div>
 
         <div className={styles.TitleContainerRight}>
@@ -166,9 +190,13 @@ function DataTable({
                       .filter((key) => !(Object.prototype.hasOwnProperty.call(row, 'checked')
                       && key === 'checked')
                       && key !== '_id'
-                      && key !== 'isReaded')
+                      && key !== 'isReaded'
+                      && key !== 'videoId'
+                      && key !== 'isAdmin')
                       .map((key) => (
-                        <div key={key} className={row.isReaded ? styles.IsRead : ''}>{row[key]}</div>
+                        <div key={key} className={row.isReaded ? styles.IsRead : ''}>
+                          {key === 'serial' ? row[key].replace(/,/g, '\n') : row[key]}
+                        </div>
                       ))}
 
                     <span className={styles.Divider} />
