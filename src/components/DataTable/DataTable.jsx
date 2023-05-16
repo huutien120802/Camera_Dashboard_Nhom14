@@ -142,7 +142,7 @@ function DataTable({
               <div>{title}</div>
               <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
             </div>
-          ) : { title }}
+          ) : <div>{ title }</div>}
         </div>
 
         <div className={styles.TitleContainerRight}>
