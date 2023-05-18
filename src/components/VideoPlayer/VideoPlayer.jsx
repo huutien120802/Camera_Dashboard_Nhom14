@@ -1,15 +1,26 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
 import styles from './index.module.css';
 
 function VideoPlayer({ videoId }) {
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [storedVideoUrl, setStoredVideoUrl] = useState(null);
   const videoRef = useRef(null);
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchVideo = async () => {
       try {
+        const storedUrl = localStorage.getItem(`videoUrl_${videoId}`);
+        if (storedUrl) {
+          setVideoUrl(storedUrl);
+          setStoredVideoUrl(storedUrl);
+          return;
+        }
+
         const response = await fetch(
           `https://camera-dashboard-be.onrender.com/api/videos/${videoId}`,
           {
@@ -19,10 +30,12 @@ function VideoPlayer({ videoId }) {
           },
         );
 
-        if (response.ok) {
+        if (response.ok && isMounted) {
           const videoBlob = await response.blob();
-          const videoUrl = URL.createObjectURL(videoBlob);
-          videoRef.current.src = videoUrl;
+          const v = URL.createObjectURL(videoBlob);
+          setVideoUrl(v);
+          setStoredVideoUrl(v);
+          localStorage.setItem(`videoUrl_${videoId}`, v);
         } else {
           console.error(
             'Failed to fetch video:',
@@ -35,16 +48,40 @@ function VideoPlayer({ videoId }) {
       }
     };
 
-    fetchVideo();
+    if (videoId && !videoUrl && isMounted) {
+      fetchVideo();
+    }
 
     return () => {
-      URL.revokeObjectURL(videoRef?.current?.src);
+      isMounted = false;
+      if (storedVideoUrl) {
+        URL.revokeObjectURL(storedVideoUrl);
+      }
     };
   }, [videoId]);
 
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      if (videoUrl) {
+        URL.revokeObjectURL(videoUrl);
+        localStorage.removeItem(`videoUrl_${videoId}`);
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [videoId, videoUrl]);
+
   return (
     <video ref={videoRef} muted autoPlay className={styles.CameraItem}>
-      Your browser does not support the video tag.
+      {videoUrl ? (
+        <source src={videoUrl} type="video/mp4" />
+      ) : (
+        'Your browser does not support the video tag.'
+      )}
     </video>
   );
 }

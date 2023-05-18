@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actionGetAllCameras, actionGetCountProfile } from 'store/actions';
 
 import VideoPlayer from 'components/VideoPlayer/VideoPlayer';
+
 import styles from './index.module.css';
 
 function HomePage() {
