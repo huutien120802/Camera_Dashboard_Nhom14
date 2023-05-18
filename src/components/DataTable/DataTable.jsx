@@ -15,11 +15,12 @@ function DataTable({
 }) {
   const [checkedCount, setCheckedCount] = useState(0);
   const [allRowsChecked, setAllRowsChecked] = useState(false);
-  const [sortedData, setSortedData] = useState(data);
   const [sortColumn, setSortColumn] = useState('');
   const [sortOrder, setSortOrder] = useState('asc');
+  const [sortedData, setSortedData] = useState(data);
   const [filterValue, setFilterValue] = useState('');
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedStartDate, setSelectedStartDate] = useState(new Date());
+  const [selectedEndDate, setSelectedEndDate] = useState(new Date());
 
   const handleSortClick = (column) => () => {
     let order = 'asc';
@@ -31,7 +32,7 @@ function DataTable({
     setSortColumn(column);
     setSortOrder(order);
 
-    const sorted = [...data].sort((a, b) => {
+    const sorted = [...sortedData].sort((a, b) => {
       const columnA = a[column].toUpperCase();
       const columnB = b[column].toUpperCase();
 
@@ -49,8 +50,23 @@ function DataTable({
   };
 
   const handleFilterClick = (value) => () => {
-    const filtered = [...data]
-      .filter((row) => Object.keys(row).some((key) => row[key].includes(value)));
+    const lowercaseValue = value.toLowerCase();
+
+    const filtered = [...data].filter((row) => Object.keys(row).some((key) => {
+      const cellValue = row[key];
+
+      if (typeof cellValue === 'string') {
+        const lowercaseCellValue = cellValue.toLowerCase();
+        return lowercaseCellValue.includes(lowercaseValue);
+      }
+
+      if (Array.isArray(cellValue)) {
+        const lowercaseCellValues = cellValue.map((item) => item.toLowerCase());
+        return lowercaseCellValues.includes(lowercaseValue);
+      }
+
+      return false;
+    }));
 
     setSortedData(filtered);
   };
@@ -97,41 +113,23 @@ function DataTable({
   }, [data]);
 
   useEffect(() => {
-    let sorted = [...data];
-
-    if (sortColumn !== '') {
-      sorted = sorted.sort((a, b) => {
-        const columnA = a[sortColumn].toUpperCase();
-        const columnB = b[sortColumn].toUpperCase();
-
-        let comparison = 0;
-        if (columnA > columnB) {
-          comparison = 1;
-        } else if (columnA < columnB) {
-          comparison = -1;
-        }
-
-        return sortOrder === 'desc' ? comparison * -1 : comparison;
-      });
-    }
-
-    setSortedData(sorted);
-  }, [data, sortColumn, sortOrder]);
-
-  useEffect(() => {
     const filtered = data.filter((row) => {
       if (row.time) {
         const rowDate = new Date(row.time).toISOString().split('T')[0];
-        const selectedDateLocal = new Date(selectedDate);
-        selectedDateLocal.setDate(selectedDateLocal.getDate() + 1);
-        const selectedDateMinusOneDay = selectedDateLocal.toISOString().split('T')[0];
-        return rowDate === selectedDateMinusOneDay;
+        const startDateLocal = new Date(selectedStartDate);
+        const endDateLocal = new Date(selectedEndDate);
+        endDateLocal.setDate(endDateLocal.getDate());
+        const endDatePlusOneDay = endDateLocal.toISOString().split('T')[0];
+        return (
+          rowDate >= startDateLocal.toISOString().split('T')[0]
+          && rowDate <= endDatePlusOneDay
+        );
       }
       return false;
     });
 
     setSortedData(filtered);
-  }, [selectedDate]);
+  }, [selectedStartDate, selectedEndDate]);
 
   return (
     <div className={styles.Container}>
@@ -140,7 +138,14 @@ function DataTable({
           {title === 'Thống kê' ? (
             <div>
               <div>{title}</div>
-              <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
+              <DatePicker
+                selected={selectedStartDate}
+                onChange={(date) => setSelectedStartDate(date)}
+              />
+              <DatePicker
+                selected={selectedEndDate}
+                onChange={(date) => setSelectedEndDate(date)}
+              />
             </div>
           ) : <div>{ title }</div>}
         </div>
