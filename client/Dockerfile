@@ -7,7 +7,6 @@ COPY . .
 RUN npm install
 # Build the app
 RUN npm run build
-
 # Bundle static assets with nginx
 FROM nginx:1.21.0-alpine as production
 ENV NODE_ENV production
