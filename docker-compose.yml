@@ -9,6 +9,8 @@ services:
     build: server
     restart: unless-stopped
     container_name: server-container
+    ports:
+      - 4000:4000
 
   nginx:
     build: nginx
