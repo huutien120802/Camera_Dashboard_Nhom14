@@ -5,6 +5,11 @@ services:
     restart: unless-stopped
     container_name: client-container
 
+  server:
+    build: server
+    restart: unless-stopped
+    container_name: server-container
+
   nginx:
     build: nginx
     restart: unless-stopped
