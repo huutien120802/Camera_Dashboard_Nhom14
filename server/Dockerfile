@@ -14,7 +14,6 @@ RUN npm install
 
 # Bundle app source
 COPY . .
-COPY mongod.conf /etc/mongod.conf
 
-EXPOSE 4000
+EXPOSE 3009
 CMD [ "node", "server.js" ]
