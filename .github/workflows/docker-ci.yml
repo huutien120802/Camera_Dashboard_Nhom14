@@ -43,6 +43,21 @@ jobs:
       - name: Verify
         run: echo ${{ steps.docker_build_client.outputs.digest }}
 
+      - name: Build and Push Docker image for server
+        uses: docker/build-push-action@v2
+        id: docker_build_server
+        with:
+          context: ./server
+          file: ./server/Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server-ai-camera
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+
+      - name: Verify
+        run: echo ${{ steps.docker_build_server.outputs.digest }}
+
       - name: Build and Push Docker image for nginx
         uses: docker/build-push-action@v2
         id: docker_build_nginx
