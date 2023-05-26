@@ -1,6 +1,9 @@
-## OKR, Quản lý rủi ro, SRS
+## Các báo cáo của nhóm
+OKR
 https://docs.google.com/spreadsheets/d/1Bsa7yrTj7WJRBuyO__YCuU0a1KxRmPkLeXwUO3BYRJM/edit?usp=share_link
+Quản lý rủi ro
 https://docs.google.com/document/d/1onzKytXqxEOd_ySBKe00SFKBMu3hsHmg/edit?usp=share_link&ouid=109719456144402366114&rtpof=true&sd=true
+SRS
 https://docs.google.com/document/d/1TwlI796521hK4ONNEqR-RT9YnBg3mrkN/edit?usp=share_link&ouid=109719456144402366114&rtpof=true&sd=true
 
 ## Các file hướng dẫn
