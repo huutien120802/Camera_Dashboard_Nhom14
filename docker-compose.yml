@@ -10,7 +10,14 @@ services:
     restart: unless-stopped
     container_name: server-container
     ports:
-      - 4000:4000
+      - 3009:3009
+
+  mongo_db:
+    image: mongo:lastest
+    restart: always
+    container_name: mongo_db-container
+    ports:
+      - 27017:27017
 
   nginx:
     build: nginx
