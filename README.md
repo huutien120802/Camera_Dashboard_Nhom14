@@ -1,3 +1,8 @@
+## OKR, Quản lý rủi ro, SRS
+https://docs.google.com/spreadsheets/d/1Bsa7yrTj7WJRBuyO__YCuU0a1KxRmPkLeXwUO3BYRJM/edit?usp=share_link
+https://docs.google.com/document/d/1onzKytXqxEOd_ySBKe00SFKBMu3hsHmg/edit?usp=share_link&ouid=109719456144402366114&rtpof=true&sd=true
+https://docs.google.com/document/d/1TwlI796521hK4ONNEqR-RT9YnBg3mrkN/edit?usp=share_link&ouid=109719456144402366114&rtpof=true&sd=true
+
 ## Các file hướng dẫn
 Hướng dẫn các api
 https://docs.google.com/document/d/1UcDDhTcBdsC4G4zG2U09UKcws-w0ehkrrRscsuGnxwg/edit?usp=share_link
