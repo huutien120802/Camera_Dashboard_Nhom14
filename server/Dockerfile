@@ -14,6 +14,7 @@ RUN npm install
 
 # Bundle app source
 COPY . .
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 3009
 CMD [ "node", "server.js" ]
