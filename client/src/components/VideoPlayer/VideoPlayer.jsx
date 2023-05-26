@@ -22,7 +22,7 @@ function VideoPlayer({ videoId }) {
         }
 
         const response = await fetch(
-          `http://localhost:3009/api/videos/${videoId}`,
+          `${process.env.REACT_APP_API_URL}/api/videos/${videoId}`,
           {
             headers: {
               range: 'bytes=0-',
