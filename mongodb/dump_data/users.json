@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "643429893347ecac77b2feda"
+  },
+  "username": "Admin",
+  "email": "admin@gmail.com",
+  "password": "$2b$10$4Otd/ExP/B.i2mKCe2AMuObwhhZetr2/XOSoppUuVW7zoBIYCm92a",
+  "avatar": "https://i.ibb.co/DpBnz1T/thumb-288110.png",
+  "isAdmin": true
+},
+{
+  "_id": {
+    "$oid": "645a2d151579e0a3731f5d1a"
+  },
+  "username": "Minh Loc",
+  "email": "minhloc@gmail.com",
+  "password": "$2b$10$4Otd/ExP/B.i2mKCe2AMuObwhhZetr2/XOSoppUuVW7zoBIYCm92a",
+  "avatar": "https://w7.pngwing.com/pngs/99/557/png-transparent-computer-icons-avatar-avatar-angle-heroes-recruiter-thumbnail.png",
+  "isAdmin": false
+},
+{
+  "_id": {
+    "$oid": "6461a79bb7be5454971867cc"
+  },
+  "username": "locson",
+  "email": "hualocson@gmail.com",
+  "password": "$2b$10$AoBux2g854VLzi8xmBdOZOUdWQNY7/6BhjUkcSi/2KZO2PVWcgS.q",
+  "avatar": "https://i.ibb.co/DpBnz1T/thumb-288110.png",
+  "isAdmin": false
+}]

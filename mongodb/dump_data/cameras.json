@@ -1,0 +1,77 @@
+[{
+  "_id": {
+    "$oid": "643b75a8486af37393a90dd0"
+  },
+  "serial": "ABC123-456789",
+  "homeId": "H56213454",
+  "connection": true,
+  "securityLevel": "High",
+  "videoId": "fEErySYqItI",
+  "isAdmin": false
+},
+{
+  "_id": {
+    "$oid": "643b8cab776f052ecea79218"
+  },
+  "serial": "DEF456-fds789",
+  "homeId": "H56213454",
+  "connection": true,
+  "securityLevel": "Normal",
+  "videoId": "IUN664s7N-c",
+  "isAdmin": true
+},
+{
+  "_id": {
+    "$oid": "6453ba63ca0186d683670fd6"
+  },
+  "serial": "DEF123-fds456",
+  "homeId": "A45463254",
+  "connection": false,
+  "securityLevel": "Normal",
+  "videoId": "9ZfN87gSjvI",
+  "isAdmin": true
+},
+{
+  "_id": {
+    "$oid": "6453ba86ca0186d683670fd7"
+  },
+  "serial": "BEF456-fds789",
+  "homeId": "B28301739",
+  "connection": true,
+  "securityLevel": "Normal",
+  "videoId": "iCwKJmiFwic",
+  "isAdmin": true
+},
+{
+  "_id": {
+    "$oid": "6463b3960d00fdd9e33e92a6"
+  },
+  "serial": "DEF456-789123",
+  "homeId": "A45463254",
+  "connection": true,
+  "securityLevel": "Medium",
+  "videoId": "CVHj7Wxhvdo",
+  "isAdmin": false
+},
+{
+  "_id": {
+    "$oid": "6463b3c60d00fdd9e33e92a7"
+  },
+  "serial": "JKL123-456789",
+  "homeId": "H98765432",
+  "connection": false,
+  "securityLevel": "Low",
+  "videoId": "F0lowv3DyfI",
+  "isAdmin": false
+},
+{
+  "_id": {
+    "$oid": "6463b3fd0d00fdd9e33e92a8"
+  },
+  "serial": "PQR789-123456",
+  "homeId": "H12345678",
+  "connection": true,
+  "securityLevel": "Medium",
+  "videoId": "AGcTCvn-a6g",
+  "isAdmin": false
+}]

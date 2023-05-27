@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "645eb522c53ca72c59b3f543"
+  },
+  "profile": "Lộc",
+  "location": "H56213454",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-05-13T12:00:00.000Z"
+  },
+  "isReaded": true
+},
+{
+  "_id": {
+    "$oid": "645eb551c53ca72c59b3f544"
+  },
+  "profile": "Tiến",
+  "location": "H56213454",
+  "serial": "ABC123-456789",
+  "time": {
+    "$date": "2023-05-12T12:00:00.000Z"
+  },
+  "isReaded": true
+},
+{
+  "_id": {
+    "$oid": "645eb588c53ca72c59b3f546"
+  },
+  "profile": "Bá Lộc",
+  "location": "H56213454",
+  "serial": "ABC123-456789",
+  "time": {
+    "$date": "2023-05-12T12:00:00.000Z"
+  },
+  "isReaded": false
+},
+{
+  "_id": {
+    "$oid": "645ec4ba60e002d85734e4b2"
+  },
+  "profile": "Lộc Sơn",
+  "location": "H56213454",
+  "serial": "ABC123-456789",
+  "time": {
+    "$date": "2023-05-12T17:00:00.000Z"
+  },
+  "isReaded": true
+},
+{
+  "_id": {
+    "$oid": "645ec54160e002d85734e4b5"
+  },
+  "profile": "Bình",
+  "location": "H56213454",
+  "serial": "ABC123-456789",
+  "time": {
+    "$date": "2023-05-12T08:00:00.000Z"
+  },
+  "isReaded": true
+},
+{
+  "_id": {
+    "$oid": "645ece9f60e002d85734e4b6"
+  },
+  "profile": "Minh Lộc",
+  "location": "A98712345",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-05-13T13:00:00.000Z"
+  },
+  "isReaded": false
+}]

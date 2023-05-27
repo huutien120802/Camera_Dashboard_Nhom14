@@ -22,7 +22,7 @@ function VideoPlayer({ videoId }) {
         }
 
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/api/videos/${videoId}`,
+          `https://camera-dashboard-be.onrender.com/api/videos/${videoId}`,
           {
             headers: {
               range: 'bytes=0-',

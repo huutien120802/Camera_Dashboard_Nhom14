@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "645a26e5ae7533b611c42722"
+  },
+  "content": "Cảnh báo mất điện",
+  "location": "H56213454",
+  "serial": "ABC456-fds789",
+  "securityLevel": "Medium",
+  "playback": "/",
+  "isReaded": true
+},
+{
+  "_id": {
+    "$oid": "64619f5f72c8565e8aed6dad"
+  },
+  "content": "Cảnh báo người lạ",
+  "location": "H56213454",
+  "serial": "ABC456-fds789",
+  "securityLevel": "Medium",
+  "playback": "/",
+  "isReaded": true
+},
+{
+  "_id": {
+    "$oid": "646882c8d4a33c6a8d6e2385"
+  },
+  "content": "Cảnh báo 1",
+  "location": "H56213454",
+  "serial": "DEF456-fds789",
+  "securityLevel": "High",
+  "playback": "/",
+  "isReaded": true
+},
+{
+  "_id": {
+    "$oid": "64688400d4a33c6a8d6e23a9"
+  },
+  "content": "Cảnh báo 1 ",
+  "location": "H56213454",
+  "serial": "DEF456-fds789",
+  "securityLevel": "High",
+  "playback": "/",
+  "isReaded": true
+},
+{
+  "_id": {
+    "$oid": "64703207d6fba5f9659d329e"
+  },
+  "content": "H56213454",
+  "location": "ABC456-fds789",
+  "serial": "Medium",
+  "securityLevel": "Medium",
+  "playback": "/",
+  "isReaded": false
+}]

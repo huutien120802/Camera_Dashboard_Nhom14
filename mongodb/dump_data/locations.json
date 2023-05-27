@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "643b75630272706efb241976"
+  },
+  "id": "H56213454",
+  "serial": "ABC123-456789,DEF456-fds789",
+  "profile": "Admin",
+  "activate": "2022-01-01"
+},
+{
+  "_id": {
+    "$oid": "6463af660d00fdd9e33e9297"
+  },
+  "id": "A45463254",
+  "serial": "DEF123-fds456,DEF456-789123",
+  "profile": "Minh Loc",
+  "activate": "2023-01-01"
+},
+{
+  "_id": {
+    "$oid": "6463afaa0d00fdd9e33e9298"
+  },
+  "id": "B28301739",
+  "serial": "BEF456-fds789",
+  "profile": "Loc Son",
+  "activate": "2023-02-01"
+},
+{
+  "_id": {
+    "$oid": "6463b2980d00fdd9e33e92a1"
+  },
+  "id": "H98765432",
+  "serial": "JKL123-456789",
+  "profile": "Ba Loc",
+  "activate": "2021-12-15"
+},
+{
+  "_id": {
+    "$oid": "6463b2be0d00fdd9e33e92a2"
+  },
+  "id": "H12345678",
+  "serial": "PQR789-123456",
+  "profile": "Huu Tien",
+  "activate": "2022-03-10"
+}]
