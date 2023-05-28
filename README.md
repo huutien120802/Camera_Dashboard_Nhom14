@@ -15,6 +15,8 @@ https://docs.google.com/document/d/1UcDDhTcBdsC4G4zG2U09UKcws-w0ehkrrRscsuGnxwg/
 Hướng dẫn cấu hình và deploy
 https://docs.google.com/document/d/1exh8uUChX_heOnpVAN6n4bEYIO8_bs6e/edit?usp=share_link&ouid=109719456144402366114&rtpof=true&sd=true
 
+## Link github backend
+https://github.com/MinhLoc282/CameraDashboardBe
 
 ## Hướng dẫn chạy ở local bằng npm
 (Yêu cầu: phải cài npm)
