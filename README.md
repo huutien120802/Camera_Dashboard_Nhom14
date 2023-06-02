@@ -18,6 +18,10 @@ https://docs.google.com/document/d/1exh8uUChX_heOnpVAN6n4bEYIO8_bs6e/edit?usp=sh
 ## Link github backend
 https://github.com/MinhLoc282/CameraDashboardBe
 
+## Tài khoản đăng nhập frontend
+admin@gmail.com
+Admin123
+
 ## Hướng dẫn chạy ở local bằng npm
 (Yêu cầu: phải cài npm)
 Mở command prompt tại thư mục project
