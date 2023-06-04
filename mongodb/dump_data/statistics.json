@@ -9,8 +9,7 @@
     "$date": "2023-05-13T12:00:00.000Z"
   },
   "isReaded": true
-},
-{
+},{
   "_id": {
     "$oid": "645eb551c53ca72c59b3f544"
   },
@@ -21,20 +20,7 @@
     "$date": "2023-05-12T12:00:00.000Z"
   },
   "isReaded": true
-},
-{
-  "_id": {
-    "$oid": "645eb588c53ca72c59b3f546"
-  },
-  "profile": "Bá Lộc",
-  "location": "H56213454",
-  "serial": "ABC123-456789",
-  "time": {
-    "$date": "2023-05-12T12:00:00.000Z"
-  },
-  "isReaded": false
-},
-{
+},{
   "_id": {
     "$oid": "645ec4ba60e002d85734e4b2"
   },
@@ -45,8 +31,7 @@
     "$date": "2023-05-12T17:00:00.000Z"
   },
   "isReaded": true
-},
-{
+},{
   "_id": {
     "$oid": "645ec54160e002d85734e4b5"
   },
@@ -57,8 +42,7 @@
     "$date": "2023-05-12T08:00:00.000Z"
   },
   "isReaded": true
-},
-{
+},{
   "_id": {
     "$oid": "645ece9f60e002d85734e4b6"
   },
@@ -67,6 +51,215 @@
   "serial": "DEF123-fds456",
   "time": {
     "$date": "2023-05-13T13:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2dadb3080e65f1390d6f"
+  },
+  "profile": "Lộc",
+  "location": "H56213454",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-06-04T12:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2dddb3080e65f1390d70"
+  },
+  "profile": "Lộc",
+  "location": "H56213454",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-06-03T12:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2deab3080e65f1390d71"
+  },
+  "profile": "Lộc",
+  "location": "H56213454",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-06-04T15:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2dfdb3080e65f1390d72"
+  },
+  "profile": "Tiến",
+  "location": "H56213454",
+  "serial": "ABC123-456789",
+  "time": {
+    "$date": "2023-06-04T10:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2e28b3080e65f1390d73"
+  },
+  "profile": "Tiến",
+  "location": "H56213454",
+  "serial": "ABC123-456789",
+  "time": {
+    "$date": "2023-06-03T17:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2e45b3080e65f1390d74"
+  },
+  "profile": "Tiến",
+  "location": "H56213454",
+  "serial": "ABC123-456789",
+  "time": {
+    "$date": "2023-06-04T16:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2e63b3080e65f1390d75"
+  },
+  "profile": "Minh Lộc",
+  "location": "A98712345",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-06-04T14:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2ee8b3080e65f1390d76"
+  },
+  "profile": "Minh Lộc",
+  "location": "A98712345",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-06-05T14:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2f0fb3080e65f1390d7b"
+  },
+  "profile": "Lộc",
+  "location": "B28301739",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-06-04T10:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2f1cb3080e65f1390d7c"
+  },
+  "profile": "Lộc",
+  "location": "B28301739",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-06-05T10:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2f43b3080e65f1390d7e"
+  },
+  "profile": "Lộc",
+  "location": "B28301739",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-06-05T18:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2f4fb3080e65f1390d7f"
+  },
+  "profile": "Tiến",
+  "location": "H56213454",
+  "serial": "ABC123-456789",
+  "time": {
+    "$date": "2023-06-05T20:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2f5db3080e65f1390d80"
+  },
+  "profile": "Lộc",
+  "location": "B28301739",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-06-05T11:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2fa4b3080e65f1390d82"
+  },
+  "profile": "Tiến",
+  "location": "H56213454",
+  "serial": "ABC123-456789",
+  "time": {
+    "$date": "2023-06-05T06:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2fb1b3080e65f1390d83"
+  },
+  "profile": "Tiến",
+  "location": "H56213454",
+  "serial": "ABC123-456789",
+  "time": {
+    "$date": "2023-06-05T07:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2fbfb3080e65f1390d84"
+  },
+  "profile": "Minh Lộc",
+  "location": "A98712345",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-06-05T03:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2fdab3080e65f1390d85"
+  },
+  "profile": "Ba Loc",
+  "location": "H56213454",
+  "serial": "ABC123-456789",
+  "time": {
+    "$date": "2023-06-05T06:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c2fe8b3080e65f1390d86"
+  },
+  "profile": "Ba Loc",
+  "location": "H56213454",
+  "serial": "ABC123-456789",
+  "time": {
+    "$date": "2023-06-05T07:00:00.000Z"
+  },
+  "isReaded": false
+},{
+  "_id": {
+    "$oid": "647c3001b3080e65f1390d87"
+  },
+  "profile": "Minh Lộc",
+  "location": "A98712345",
+  "serial": "DEF123-fds456",
+  "time": {
+    "$date": "2023-06-04T04:00:00.000Z"
   },
   "isReaded": false
 }]

@@ -8,8 +8,7 @@
   "securityLevel": "Medium",
   "playback": "/",
   "isReaded": true
-},
-{
+},{
   "_id": {
     "$oid": "64619f5f72c8565e8aed6dad"
   },
@@ -18,37 +17,34 @@
   "serial": "ABC456-fds789",
   "securityLevel": "Medium",
   "playback": "/",
-  "isReaded": true
-},
-{
+  "isReaded": false
+},{
   "_id": {
-    "$oid": "646882c8d4a33c6a8d6e2385"
+    "$oid": "64708894b976963d65bcf607"
   },
-  "content": "Cảnh báo 1",
-  "location": "H56213454",
-  "serial": "DEF456-fds789",
-  "securityLevel": "High",
+  "content": "Cảnh báo người lạ",
+  "location": "A45463254",
+  "serial": "DEF456-789123",
+  "securityLevel": "Medium",
   "playback": "/",
-  "isReaded": true
-},
-{
+  "isReaded": false
+},{
   "_id": {
-    "$oid": "64688400d4a33c6a8d6e23a9"
+    "$oid": "64708b6fb976963d65bcf63b"
   },
-  "content": "Cảnh báo 1 ",
+  "content": "Cảnh báo",
   "location": "H56213454",
-  "serial": "DEF456-fds789",
-  "securityLevel": "High",
+  "serial": "ABC123-456789",
+  "securityLevel": "Medium",
   "playback": "/",
-  "isReaded": true
-},
-{
+  "isReaded": false
+},{
   "_id": {
-    "$oid": "64703207d6fba5f9659d329e"
+    "$oid": "64708c9fb976963d65bcf640"
   },
-  "content": "H56213454",
-  "location": "ABC456-fds789",
-  "serial": "Medium",
+  "content": "Cảnh báo",
+  "location": "A45463254",
+  "serial": "ABC123-456789",
   "securityLevel": "Medium",
   "playback": "/",
   "isReaded": false
